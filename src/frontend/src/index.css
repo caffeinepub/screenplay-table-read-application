@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    --font-display: "Fraunces", serif;
+    --font-body: "General Sans", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+    --background: 0.98 0 0;
+    --foreground: 0.15 0 0;
+    --card: 1 0 0;
+    --card-foreground: 0.15 0 0;
+    --popover: 1 0 0;
+    --popover-foreground: 0.15 0 0;
+    --primary: 0.55 0.2 280;
+    --primary-foreground: 0.98 0 0;
+    --secondary: 0.92 0.05 280;
+    --secondary-foreground: 0.2 0 0;
+    --muted: 0.95 0 0;
+    --muted-foreground: 0.5 0 0;
+    --accent: 0.65 0.18 320;
+    --accent-foreground: 0.98 0 0;
+    --destructive: 0.6 0.25 25;
+    --destructive-foreground: 0.98 0 0;
+    --border: 0.9 0 0;
+    --input: 0.9 0 0;
+    --ring: 0.55 0.2 280;
+    --success: 0.65 0.2 145;
+    --success-foreground: 0.98 0 0;
+    --warning: 0.7 0.22 85;
+    --warning-foreground: 0.15 0 0;
+    --chart-1: 0.65 0.22 280;
+    --chart-2: 0.6 0.18 320;
+    --chart-3: 0.7 0.2 200;
+    --chart-4: 0.55 0.25 340;
+    --chart-5: 0.75 0.22 160;
+    --sidebar: 0.98 0 0;
+    --sidebar-foreground: 0.15 0 0;
+    --sidebar-primary: 0.55 0.2 280;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.95 0 0;
+    --sidebar-accent-foreground: 0.2 0 0;
+    --sidebar-border: 0.9 0 0;
+    --sidebar-ring: 0.7 0 0;
+  }
+
+  .dark {
+    --background: 0.1 0 0;
+    --foreground: 0.93 0 0;
+    --card: 0.14 0 0;
+    --card-foreground: 0.93 0 0;
+    --popover: 0.16 0 0;
+    --popover-foreground: 0.93 0 0;
+    --primary: 0.68 0.24 280;
+    --primary-foreground: 0.1 0 0;
+    --secondary: 0.2 0.06 280;
+    --secondary-foreground: 0.93 0 0;
+    --muted: 0.18 0 0;
+    --muted-foreground: 0.6 0 0;
+    --accent: 0.72 0.22 320;
+    --accent-foreground: 0.1 0 0;
+    --destructive: 0.62 0.28 25;
+    --destructive-foreground: 0.1 0 0;
+    --border: 0.22 0 0;
+    --input: 0.22 0 0;
+    --ring: 0.68 0.24 280;
+    --success: 0.68 0.24 145;
+    --success-foreground: 0.1 0 0;
+    --warning: 0.72 0.26 85;
+    --warning-foreground: 0.1 0 0;
+    --chart-1: 0.68 0.26 280;
+    --chart-2: 0.62 0.22 320;
+    --chart-3: 0.72 0.24 200;
+    --chart-4: 0.58 0.28 340;
+    --chart-5: 0.78 0.26 160;
+    --sidebar: 0.14 0 0;
+    --sidebar-foreground: 0.93 0 0;
+    --sidebar-primary: 0.68 0.24 280;
+    --sidebar-primary-foreground: 0.1 0 0;
+    --sidebar-accent: 0.18 0 0;
+    --sidebar-accent-foreground: 0.93 0 0;
+    --sidebar-border: 0.22 0 0;
+    --sidebar-ring: 0.42 0 0;
+
+    /* Character color tokens */
+    --character-warm: oklch(0.65 0.26 35);
+    --character-cool: oklch(0.7 0.24 200);
+    --character-electric: oklch(0.6 0.3 340);
+    --character-emerald: oklch(0.7 0.26 145);
+    --character-gold: oklch(0.72 0.28 85);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  html {
+    color-scheme: dark;
+  }
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/assets/fonts/JetBrainsMono.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer utilities {
+  /* Typography */
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  /* Screenplay reading layout */
+  .screenplay-content {
+    line-height: 1.85;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+  }
+
+  /* Sticky playback controls */
+  .sticky-controls {
+    @apply sticky bottom-0 z-40 backdrop-blur-md border-t border-border shadow-lg;
+    background-color: oklch(from var(--card) l c h / 0.95);
+  }
+
+  /* Currently active script block highlight */
+  .script-block-active {
+    @apply rounded-sm transition-colors duration-200;
+    background-color: oklch(from var(--primary) l c h / 0.12);
+    border-left: 3px solid oklch(from var(--primary) l c h);
+    padding-left: 0.75rem;
+  }
+
+  /* Character avatar badges */
+  .character-badge {
+    @apply flex items-center justify-center rounded-full font-bold text-xs select-none;
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    @apply transition-all duration-200 ease-in-out;
+  }
+
+  /* Shadow variants */
+  .shadow-subtle {
+    box-shadow: 0 1px 3px oklch(0 0 0 / 0.3), 0 1px 2px oklch(0 0 0 / 0.2);
+  }
+
+  .shadow-glow-primary {
+    box-shadow: 0 0 20px oklch(from var(--primary) l c h / 0.25);
+  }
+
+  /* Scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(from var(--border) l c h) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply rounded-full;
+    background-color: oklch(from var(--border) l c h);
+  }
+
+  /* Voice card - glassy effect */
+  .voice-card {
+    @apply rounded-xl border border-border bg-card transition-smooth;
+  }
+
+  .voice-card:hover {
+    @apply border-primary/40;
+    box-shadow: 0 0 0 1px oklch(from var(--primary) l c h / 0.15);
+  }
+
+  /* Playback progress bar */
+  .progress-track {
+    @apply h-1 w-full rounded-full bg-muted overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full rounded-full bg-primary transition-all duration-300;
+  }
+}

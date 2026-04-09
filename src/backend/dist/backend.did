@@ -1,0 +1,47 @@
+type Timestamp = int;
+type ScreenplaySummary = 
+ record {
+   createdAt: Timestamp;
+   id: ScreenplayId;
+   language: text;
+   title: text;
+ };
+type ScreenplayId = text;
+type Screenplay = 
+ record {
+   content: text;
+   createdAt: Timestamp;
+   id: ScreenplayId;
+   language: text;
+   title: text;
+ };
+type CharacterVoiceSetting = 
+ record {
+   character: text;
+   pitch: float64;
+   providerType: opt text;
+   rate: float64;
+   voiceUri: text;
+ };
+service : {
+  addScreenplay: (title: text, language: text, content: text) ->
+   (variant {
+      err: text;
+      ok: ScreenplayId;
+    });
+  deleteScreenplay: (id: ScreenplayId) -> (variant {
+                                             err: text;
+                                             ok;
+                                           });
+  getActiveProvider: (screenplayId: ScreenplayId) -> (text) query;
+  getScreenplay: (id: ScreenplayId) -> (opt Screenplay) query;
+  getVoiceSettings: (screenplayId: ScreenplayId) ->
+   (vec CharacterVoiceSetting) query;
+  listScreenplays: () -> (vec ScreenplaySummary) query;
+  saveVoiceSettings: (screenplayId: ScreenplayId, settings:
+   vec CharacterVoiceSetting, activeProvider: opt text) ->
+   (variant {
+      err: text;
+      ok;
+    });
+}

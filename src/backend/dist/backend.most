@@ -1,0 +1,51 @@
+// Version: 1.0.0
+type CharacterVoiceSetting__184167504 =
+  {
+    character : Text;
+    pitch : Float;
+    providerType : ?Text;
+    rate : Float;
+    voiceUri : Text
+  };
+type Data__791452850<K, V> =
+  {var count : Nat__490723111; kvs : [var ?(K, V)]};
+type Internal__8484328<K, V> =
+  {children : [var ?Node__46230540<K, V>]; data : Data__791452850<K, V>};
+type Leaf__809889148<K, V> = {data : Data__791452850<K, V>};
+type List__415060402<T> = List__790383201<T>;
+type List__790383201<T> =
+  {
+    var blockIndex : Nat__490723111;
+    var blocks : [var [var ?T]];
+    var elementIndex : Nat__490723111
+  };
+type Map__158565046<K, V> = Map__297112838<K, V>;
+type Map__297112838<K, V> =
+  {var root : Node__46230540<K, V>; var size : Nat__490723111};
+type Map__605269027<K, V> = Map__158565046<K, V>;
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Node__46230540<K, V> =
+  {#internal : Internal__8484328<K, V>; #leaf : Leaf__809889148<K, V>};
+type ScreenplayId__738211941 = Text;
+type ScreenplayId__81630660 = ScreenplayId__738211941;
+type Screenplay__244254373 =
+  {
+    content : Text;
+    createdAt : Timestamp__560892220;
+    id : ScreenplayId__81630660;
+    language : Text;
+    title : Text
+  };
+type Timestamp__301639476 = Int;
+type Timestamp__560892220 = Timestamp__301639476;
+actor {
+  stable state :
+    {
+      screenplays :
+        Map__605269027<ScreenplayId__81630660, Screenplay__244254373>;
+      voiceSettings :
+        Map__605269027<ScreenplayId__81630660,
+                        List__415060402<CharacterVoiceSetting__184167504>>
+    }
+};

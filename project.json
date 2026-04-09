@@ -1,0 +1,25 @@
+{
+  "overview": "A web app for uploading Fountain-formatted screenplays and running a table read with distinct voices per character using the browser's speech synthesis, with auto-scrolling, sticky playback controls, and a creative voice configuration studio.",
+  "features": [
+    "Upload Fountain-formatted screenplays",
+    "Table read playback with Web Speech API",
+    "Per-character voice assignment with pitch and rate controls",
+    "Creative Voice Studio tab with color-coded character cards",
+    "Smart skip-back: jumps to previous block if less than 2 seconds in",
+    "Auto-scroll keeps current spoken line visible",
+    "Sticky play controls always accessible",
+    "Voice settings persisted across sessions",
+    "Speech preprocessing: omits ellipses and dashes, reads INT/EXT as inside/outside"
+  ],
+  "category": "productivity",
+  "tags": [
+    "screenplay",
+    "table-read",
+    "fountain",
+    "tts",
+    "voice",
+    "playback",
+    "writing"
+  ],
+  "last_updated": "2026-04-08T18:44:14.372Z"
+}
